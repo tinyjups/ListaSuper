@@ -1,51 +1,37 @@
 <svg width="512" height="512" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <clipPath id="roundClip"><rect width="680" height="680" rx="130"/></clipPath>
-  <clipPath id="bagClip"><rect x="150" y="255" width="380" height="340" rx="26"/></clipPath>
 </defs>
 
 <!-- Fondo azul Hockney -->
 <rect width="680" height="680" rx="130" fill="#2B6CB8"/>
 
 <!-- Franja verde inferior -->
-<rect x="0" y="500" width="680" height="180" rx="0" fill="#2E9E4F" clip-path="url(#roundClip)"/>
-<rect x="0" y="540" width="680" height="140" rx="0" fill="#1E7A38" clip-path="url(#roundClip)"/>
+<rect x="0" y="460" width="680" height="220" rx="0" fill="#2E9E4F" clip-path="url(#roundClip)"/>
+<rect x="0" y="508" width="680" height="172" rx="0" fill="#1E7A38" clip-path="url(#roundClip)"/>
 
-<!-- Línea divisora azul/verde -->
-<rect x="0" y="498" width="680" height="5" fill="#1A7A3A" clip-path="url(#roundClip)"/>
+<!-- Línea divisora -->
+<rect x="0" y="458" width="680" height="6" fill="#1A7A3A" clip-path="url(#roundClip)"/>
 
-<!-- Sombra bolsa -->
-<rect x="162" y="278" width="380" height="340" rx="26" fill="#0D3A70" opacity="0.28"/>
+<!-- Sombra plana desplazada -->
+<ellipse cx="356" cy="368" rx="148" ry="192" fill="#0D3A70" opacity="0.22"/>
 
-<!-- Cuerpo bolsa -->
-<rect x="150" y="265" width="380" height="340" rx="26" fill="#F5EFE0"/>
+<!-- Cuerpo exterior aguacate -->
+<ellipse cx="340" cy="355" rx="148" ry="192" fill="#1A4A0E"/>
 
-<!-- Franja superior amarilla -->
-<rect x="150" y="265" width="380" height="56" rx="0" fill="#F2C94C" clip-path="url(#bagClip)"/>
-<rect x="150" y="317" width="380" height="5" fill="#D4A820"/>
-
-<!-- Asas -->
-<path d="M242,272 L242,176 Q242,114 298,102 Q340,92 382,102 Q438,114 438,176 L438,272"
-      fill="none" stroke="#F5EFE0" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M242,272 L242,176 Q242,114 298,102 Q340,92 382,102 Q438,114 438,176 L438,272"
-      fill="none" stroke="#D8CEB8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
-
-<!-- Aguacate — cuerpo exterior oscuro -->
-<ellipse cx="340" cy="450" rx="105" ry="138" fill="#1A4A0E"/>
 <!-- Plano de luz Hockney -->
-<ellipse cx="310" cy="400" rx="44" ry="68" fill="#2A6818" opacity="0.72"/>
+<ellipse cx="298" cy="288" rx="62" ry="96" fill="#2A6818" opacity="0.75"/>
 
-<!-- Interior pulpa amarillo-verde -->
-<ellipse cx="340" cy="464" rx="78" ry="104" fill="#C8D840"/>
+<!-- Pulpa interior -->
+<ellipse cx="340" cy="372" rx="108" ry="148" fill="#C8D840"/>
 
-<!-- Semilla marrón atrevida -->
-<ellipse cx="340" cy="472" rx="38" ry="50" fill="#8B4010"/>
+<!-- Semilla -->
+<ellipse cx="340" cy="382" rx="52" ry="68" fill="#8B4010"/>
+
 <!-- Plano de luz semilla -->
-<ellipse cx="326" cy="456" rx="16" ry="20" fill="#A85828" opacity="0.55"/>
+<ellipse cx="322" cy="362" rx="20" ry="26" fill="#A85828" opacity="0.60"/>
 
 <!-- Tallo -->
-<rect x="336" y="314" width="8" height="36" rx="3" fill="#3A2008"/>
-
-<!-- Borde bolsa -->
-<rect x="150" y="265" width="380" height="340" rx="26" fill="none" stroke="#C8B888" stroke-width="3" opacity="0.5"/>
+<rect x="334" y="165" width="12" height="46" rx="5" fill="#3A2008"/>
+<ellipse cx="340" cy="210" rx="18" ry="8" fill="#1A4A0E"/>
 </svg>
