@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>Lista del Súper</title>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,12 +19,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f7f5f0;color:#2c2c2
 :root{
   --green:#3B6D11;--green-l:#EAF3DE;--green-m:#639922;
   --amber:#BA7517;--amber-l:#FAEEDA;
-  --coral:#993C1D;--coral-l:#FAECE7;
-  --blue:#185FA5;--blue-l:#E6F1FB;
-  --purple:#534AB7;--purple-l:#EEEDFE;
-  --red:#A32D2D;--red-l:#FCEBEB;
-  --gray:#5F5E5A;--gray-l:#F1EFE8;
-  --border:#d3d1c7
+  --coral:#993C1D;--blue:#185FA5;--blue-l:#E6F1FB;
+  --purple:#534AB7;--red:#A32D2D;--red-l:#FCEBEB;
+  --gray:#5F5E5A;--gray-l:#F1EFE8;--border:#d3d1c7
 }
 .app{max-width:980px;margin:0 auto;padding:12px}
 .header{background:#fff;border:0.5px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -85,8 +82,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f7f5f0;color:#2c2c2
 .di.chicas{background:var(--amber-l);border-color:var(--amber);color:var(--amber)}
 .di.jardin{background:var(--green-l);border-color:var(--green-m);color:var(--green)}
 .qty-w{flex:0 0 56px;display:flex;align-items:center;gap:3px;justify-content:flex-end;margin-left:4px}
-.qty-btn{width:20px;height:20px;border-radius:4px;border:0.5px solid var(--border);background:#f7f5f0;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#555;font-weight:600;line-height:1;flex-shrink:0}
-.qty-btn:hover{background:#e8e5df}
+/* Bigger tap targets on mobile — no scroll jump */
+.qty-btn{width:28px;height:28px;border-radius:6px;border:0.5px solid var(--border);background:#f7f5f0;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:#555;font-weight:600;line-height:1;flex-shrink:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.qty-btn:active{background:#e0ddd6}
 .qty-n{font-size:11px;font-weight:500;width:14px;text-align:center;flex-shrink:0}
 .add-row{padding:5px 12px}
 .add-inp{width:100%;border:none;background:transparent;font-size:11px;color:#888;outline:none;padding:1px 0}
@@ -111,13 +109,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f7f5f0;color:#2c2c2
 .wk-chk-btn{padding:5px 11px;border-radius:20px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:11px;font-weight:500;color:#666;transition:all .15s;white-space:nowrap}
 .wk-chk-btn.sel{background:var(--green-l);border-color:var(--green);color:var(--green)}
 .cmp-btn{margin-top:10px;padding:7px 16px;background:var(--green);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:5px}
-.cmp-btn:hover{opacity:.88}
 .bar-card{background:#fff;border:0.5px solid var(--border);border-radius:12px;padding:13px;margin-bottom:8px}
 .sec-title{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:5px;color:#2c2c2a}
 .bar-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
 .bar-lbl{font-size:11px;color:#555;min-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bar-track{flex:1;height:13px;background:#f7f5f0;border-radius:6px;overflow:hidden;display:flex;gap:1px}
-.bar-seg{height:100%;transition:width .3s;min-width:0}
+.bar-seg{height:100%;min-width:0}
 .bar-val{font-size:11px;font-weight:500;min-width:22px;text-align:right;color:#555}
 .tbl-wrap{background:#fff;border:0.5px solid var(--border);border-radius:12px;padding:13px;margin-bottom:8px;overflow-x:auto}
 .cmp-tbl{width:100%;border-collapse:collapse;font-size:11px}
@@ -141,7 +138,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f7f5f0;color:#2c2c2
   #panel-historial,#panel-comparar{display:none!important}
   #panel-lista{display:block!important}
   .app{max-width:100%;padding:0;margin:0}
-  .header{border:none!important;border-radius:0!important;padding:0 0 3pt 0!important;margin-bottom:4pt!important;border-bottom:0.75pt solid #999!important;display:flex!important;justify-content:space-between!important;align-items:center!important;box-shadow:none!important}
+  .header{border:none!important;border-radius:0!important;padding:0 0 3pt 0!important;margin-bottom:4pt!important;border-bottom:0.75pt solid #999!important;display:flex!important;justify-content:space-between!important;align-items:center!important}
   .logo,.sync-dot,.sync-label{display:none!important}
   .h-title{font-size:11pt!important;font-weight:700!important}
   .h-sub{font-size:7.5pt!important;color:#666!important}
@@ -181,13 +178,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f7f5f0;color:#2c2c2
     <div class="week-badge" id="weekBadge"></div>
   </div>
 </div>
-
 <div class="nav-tabs no-print">
   <button class="nav-tab active" onclick="switchTab('lista',this)"><i class="ti ti-clipboard-list"></i>Lista</button>
   <button class="nav-tab" onclick="switchTab('historial',this)"><i class="ti ti-history"></i>Historial</button>
   <button class="nav-tab" onclick="switchTab('comparar',this)"><i class="ti ti-chart-bar"></i>Comparar</button>
 </div>
-
 <div class="panel active" id="panel-lista">
   <div class="sum-bar no-print">
     <div class="sum-s"><div class="sum-lbl">Productos</div><div class="sum-val" id="stTotal">0</div></div>
@@ -210,11 +205,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f7f5f0;color:#2c2c2
   </div>
   <div class="cat-grid" id="catGrid"></div>
 </div>
-
-<div class="panel" id="panel-historial">
-  <div class="hist-wrap" id="histWrap"></div>
-</div>
-
+<div class="panel" id="panel-historial"><div class="hist-wrap" id="histWrap"></div></div>
 <div class="panel" id="panel-comparar">
   <div class="cmp-controls">
     <div class="cmp-ctrl-title"><i class="ti ti-calendar-stats" style="font-size:15px"></i>Seleccioná las semanas a comparar</div>
@@ -240,10 +231,11 @@ const firebaseConfig = {
   appId:             "1:787340675153:web:fac673efc63df87946d070"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-const db = getDatabase(firebaseApp);
-const STATE_REF = ref(db, 'listaSuper');
+const fbApp = initializeApp(firebaseConfig);
+const db = getDatabase(fbApp);
+const STATE_REF = ref(db, 'lista-super');
 
+// ── Categories ────────────────────────────────────
 const CATS=[
   {id:'verduras',name:'Verduras',icon:'ti-leaf',color:'#3B6D11',bg:'#EAF3DE',items:[
     {n:'Acelga',s:false},{n:'Arvejas',s:true},{n:'Aguacate',s:false},{n:'Ajo',s:false},
@@ -324,131 +316,176 @@ const CATS=[
   ]}
 ];
 
+// ── Helpers ───────────────────────────────────────
+function makeKey(catId, name){ return catId + '--' + name.replace(/[.#$/\[\]]/g,'_'); }
+
 const WK_COLORS=['#3B6D11','#BA7517','#185FA5','#A32D2D','#534AB7','#0F6E56','#993C1D','#888780'];
-let ST=buildEmptyST(), filters={casa:true,chicas:true,jardin:true}, srch='', selWeeks=[];
+let ST = buildEmpty();
+let filters={casa:true,chicas:true,jardin:true}, srch='', selWeeks=[];
 let remoteWritePending=false, writeTimer=null;
 
-function buildEmptyST(){
+function buildEmpty(){
   const items={};
-  CATS.forEach(c=>c.items.forEach(it=>{items[c.id+'--'+it.n]={qty:0,chk:false,dest:{casa:true,chicas:false,jardin:false},s:it.s};}));
+  CATS.forEach(c=>c.items.forEach(it=>{ items[makeKey(c.id,it.n)]={qty:0,chk:false,dest:{casa:true,chicas:false,jardin:false},s:it.s}; }));
   return{items,curWeek:getWeekStr(new Date()),history:[],custom:{}};
 }
+function getWeekStr(d){
+  const yr=d.getFullYear(),s=new Date(yr,0,1),wk=Math.ceil(((d-s)/86400000+s.getDay()+1)/7);
+  return 'Semana '+wk+', '+yr;
+}
+function setWeekBadge(){ document.getElementById('weekBadge').textContent=ST.curWeek||getWeekStr(new Date()); }
 function setSyncStatus(status,label){
   document.getElementById('syncDot').className='sync-dot '+status;
   document.getElementById('syncLabel').textContent=label;
 }
-function getWeekStr(d){
-  const yr=d.getFullYear(),s=new Date(yr,0,1),wk=Math.ceil(((d-s)/86400000+s.getDay()+1)/7);
-  return`Semana ${wk}, ${yr}`;
-}
-function setWeekBadge(){ document.getElementById('weekBadge').textContent=ST.curWeek||getWeekStr(new Date()); }
 
-onValue(STATE_REF,(snapshot)=>{
+// ── Firebase ──────────────────────────────────────
+onValue(STATE_REF, function(snap){
   if(remoteWritePending) return;
-  const data=snapshot.val();
+  const data=snap.val();
   if(data) ST=data;
   setSyncStatus('ok','Sincronizado');
   setWeekBadge(); renderCats();
   if(document.getElementById('panel-historial').classList.contains('active')) renderHistory();
   if(document.getElementById('panel-comparar').classList.contains('active')) renderComparePicker();
-},(error)=>{ setSyncStatus('err','Sin conexión'); });
+}, function(err){
+  setSyncStatus('err','Sin conexión');
+  console.error('Firebase error:', err);
+});
 
 function saveToFirebase(){
   setSyncStatus('syncing','Guardando...');
   clearTimeout(writeTimer);
-  writeTimer=setTimeout(async()=>{
+  writeTimer=setTimeout(async function(){
     remoteWritePending=true;
-    try{ await set(STATE_REF,ST); setSyncStatus('ok','Sincronizado'); }
-    catch(e){ setSyncStatus('err','Error al guardar'); }
-    setTimeout(()=>{ remoteWritePending=false; },1000);
-  },600);
+    try{
+      await set(STATE_REF, ST);
+      setSyncStatus('ok','Sincronizado');
+    } catch(err){
+      console.error('Save error:', err.code, err.message);
+      setSyncStatus('err','Error: '+err.code);
+    }
+    setTimeout(function(){ remoteWritePending=false; }, 1000);
+  }, 600);
 }
 
-function switchTab(tab,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('panel-'+tab).classList.add('active'); btn.classList.add('active');
+// ── Tab switching ─────────────────────────────────
+window.switchTab = function(tab,btn){
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('panel-'+tab).classList.add('active');
+  btn.classList.add('active');
   if(tab==='historial') renderHistory();
   if(tab==='comparar') renderComparePicker();
-}
-window.switchTab=switchTab;
-function toggleFilter(dest,btn){
+};
+
+window.toggleFilter = function(dest,btn){
   filters[dest]=!filters[dest];
-  const cls={casa:'act-casa',chicas:'act-chicas',jardin:'act-jardin'};
+  var cls={casa:'act-casa',chicas:'act-chicas',jardin:'act-jardin'};
   filters[dest]?btn.classList.add(cls[dest]):btn.classList.remove(cls[dest]);
   renderCats();
-}
-window.toggleFilter=toggleFilter;
-function doSearch(v){ srch=v.toLowerCase(); renderCats(); }
-window.doSearch=doSearch;
+};
 
+window.doSearch = function(v){ srch=v.toLowerCase(); renderCats(); };
+
+// ── Render — NO full DOM rebuild on qty change ────
 function renderCats(){
-  const grid=document.getElementById('catGrid'); grid.innerHTML='';
+  const grid=document.getElementById('catGrid');
+  grid.innerHTML='';
   let tot=0,chk=0,sup=0,loc=0;
-  CATS.forEach(cat=>{
-    const allItems=cat.items.map(it=>({...it,key:cat.id+'--'+it.n}));
-    const customs=Object.entries(ST.custom||{}).filter(([k])=>k.startsWith(cat.id+'--custom--')).map(([k,v])=>({n:v.n,s:false,key:k,custom:true}));
-    const combined=[...allItems,...customs];
-    const withQty=combined.filter(it=>{ const st=ST.items[it.key]; return st&&st.qty>0; });
-    withQty.forEach(it=>{ const st=ST.items[it.key]; tot+=st.qty; if(st.chk) chk+=st.qty; if(it.s) sup+=st.qty; else loc+=st.qty; });
+
+  CATS.forEach(function(cat){
+    const allItems=cat.items.map(function(it){ return Object.assign({},it,{key:makeKey(cat.id,it.n)}); });
+    const customs=Object.entries(ST.custom||{})
+      .filter(function(e){ return e[0].startsWith(cat.id+'--custom--'); })
+      .map(function(e){ return {n:e[1].n,s:false,key:e[0],custom:true}; });
+    const combined=allItems.concat(customs);
+    const withQty=combined.filter(function(it){ const st=ST.items[it.key]; return st&&st.qty>0; });
+
+    withQty.forEach(function(it){
+      const st=ST.items[it.key];
+      tot+=st.qty;
+      if(st.chk) chk+=st.qty;
+      if(it.s) sup+=st.qty; else loc+=st.qty;
+    });
+
     const card=document.createElement('div'); card.className='cat-card';
-    card.innerHTML=`<div class="cat-hdr" style="background:${cat.bg}40">
-      <i class="ti ${cat.icon} cat-hdr-icon" style="color:${cat.color}"></i>
-      <span class="cat-hdr-title" style="color:${cat.color}">${cat.name}</span>
-      ${withQty.length?`<span class="cat-cnt">${withQty.length}</span>`:''}
-    </div>`;
-    combined.forEach(it=>{
+    card.innerHTML='<div class="cat-hdr" style="background:'+cat.bg+'40">'
+      +'<i class="ti '+cat.icon+' cat-hdr-icon" style="color:'+cat.color+'"></i>'
+      +'<span class="cat-hdr-title" style="color:'+cat.color+'">'+cat.name+'</span>'
+      +(withQty.length?'<span class="cat-cnt">'+withQty.length+'</span>':'')
+      +'</div>';
+
+    combined.forEach(function(it){
       const key=it.key;
       if(!ST.items[key]) ST.items[key]={qty:0,chk:false,dest:{casa:true,chicas:false,jardin:false},s:it.s||false};
       const st=ST.items[key];
-      if(st.qty>0){ const dm=Object.keys(filters).some(d=>filters[d]&&st.dest[d]); if(!dm) return; }
+      if(st.qty>0){
+        const dm=Object.keys(filters).some(function(d){ return filters[d]&&st.dest&&st.dest[d]; });
+        if(!dm) return;
+      }
       if(srch&&!it.n.toLowerCase().includes(srch)&&st.qty===0) return;
+
       const row=document.createElement('div'); row.className='item-row';
-      row.innerHTML=`
-        <div class="item-chk ${st.chk?'on':''}" onclick="toggleChk('${key}')"></div>
-        <span class="item-nm ${it.s?'b':''} ${st.chk&&st.qty>0?'x':''}">${it.n}</span>
-        <div class="dest-icons">
-          <div class="di casa ${st.dest&&st.dest.casa?'on':''}" onclick="toggleDest('${key}','casa')" title="Casa"><i class="ti ti-home" style="font-size:9px"></i></div>
-          <div class="di chicas ${st.dest&&st.dest.chicas?'on':''}" onclick="toggleDest('${key}','chicas')" title="Chicas"><i class="ti ti-users" style="font-size:9px"></i></div>
-          <div class="di jardin ${st.dest&&st.dest.jardin?'on':''}" onclick="toggleDest('${key}','jardin')" title="Jardín"><i class="ti ti-plant" style="font-size:9px"></i></div>
-        </div>
-        <div class="qty-w">
-          <button class="qty-btn" onclick="chgQty('${key}',-1)">−</button>
-          <span class="qty-n">${st.qty}</span>
-          <button class="qty-btn" onclick="chgQty('${key}',1)">+</button>
-        </div>`;
+      const safeKey=key.replace(/'/g,"\\'");
+      row.innerHTML=
+        '<div class="item-chk'+(st.chk?' on':'')+'" onclick="toggleChk(\''+safeKey+'\')"></div>'
+        +'<span class="item-nm'+(it.s?' b':'')+(st.chk&&st.qty>0?' x':'')+'" title="'+it.n+'">'+it.n+'</span>'
+        +'<div class="dest-icons">'
+          +'<div class="di casa'+(st.dest&&st.dest.casa?' on':'')+'" onclick="toggleDest(\''+safeKey+'\',\'casa\')" title="Casa"><i class="ti ti-home" style="font-size:9px"></i></div>'
+          +'<div class="di chicas'+(st.dest&&st.dest.chicas?' on':'')+'" onclick="toggleDest(\''+safeKey+'\',\'chicas\')" title="Chicas"><i class="ti ti-users" style="font-size:9px"></i></div>'
+          +'<div class="di jardin'+(st.dest&&st.dest.jardin?' on':'')+'" onclick="toggleDest(\''+safeKey+'\',\'jardin\')" title="Jardín"><i class="ti ti-plant" style="font-size:9px"></i></div>'
+        +'</div>'
+        +'<div class="qty-w">'
+          +'<button class="qty-btn" ontouchstart="" onclick="chgQty(\''+safeKey+'\',-1)">&#8722;</button>'
+          +'<span class="qty-n" id="qn-'+safeKey+'">'+st.qty+'</span>'
+          +'<button class="qty-btn" ontouchstart="" onclick="chgQty(\''+safeKey+'\',1)">+</button>'
+        +'</div>';
       card.appendChild(row);
     });
+
     const ar=document.createElement('div'); ar.className='add-row';
-    ar.innerHTML=`<input class="add-inp" placeholder="+ Agregar..." onkeydown="addCustom(event,'${cat.id}','${cat.name}')">`;
-    card.appendChild(ar); grid.appendChild(card);
+    ar.innerHTML='<input class="add-inp" placeholder="+ Agregar..." onkeydown="addCustom(event,\''+cat.id+'\',\''+cat.name+'\')">';
+    card.appendChild(ar);
+    grid.appendChild(card);
   });
+
   document.getElementById('stTotal').textContent=tot;
   document.getElementById('stChecked').textContent=chk;
   document.getElementById('stSuper').textContent=sup;
   document.getElementById('stLocal').textContent=loc;
 }
-function chgQty(key,d){
+
+// ── Update qty in-place (no scroll jump) ──────────
+window.chgQty = function(key,d){
   if(!ST.items[key]) ST.items[key]={qty:0,chk:false,dest:{casa:true,chicas:false,jardin:false}};
-  ST.items[key].qty=Math.max(0,(ST.items[key].qty||0)+d);
-  if(ST.items[key].qty===0) ST.items[key].chk=false;
-  saveToFirebase(); renderCats();
-}
-window.chgQty=chgQty;
-function toggleChk(key){
+  const newQty=Math.max(0,(ST.items[key].qty||0)+d);
+  ST.items[key].qty=newQty;
+  if(newQty===0) ST.items[key].chk=false;
+
+  // Update just the number in-place — no full re-render
+  const numEl=document.getElementById('qn-'+key);
+  if(numEl) numEl.textContent=newQty;
+
+  saveToFirebase();
+  // Full re-render only if qty crossed 0 (item appears/disappears)
+  if(newQty===0||newQty===1) renderCats();
+};
+
+window.toggleChk = function(key){
   if(!ST.items[key]||ST.items[key].qty===0) return;
   ST.items[key].chk=!ST.items[key].chk;
   saveToFirebase(); renderCats();
-}
-window.toggleChk=toggleChk;
-function toggleDest(key,dest){
+};
+
+window.toggleDest = function(key,dest){
   if(!ST.items[key]) return;
   if(!ST.items[key].dest) ST.items[key].dest={};
   ST.items[key].dest[dest]=!ST.items[key].dest[dest];
   saveToFirebase(); renderCats();
-}
-window.toggleDest=toggleDest;
-function addCustom(e,catId,catName){
+};
+
+window.addCustom = function(e,catId,catName){
   if(e.key!=='Enter') return;
   const v=e.target.value.trim(); if(!v) return;
   const key=catId+'--custom--'+Date.now();
@@ -456,92 +493,111 @@ function addCustom(e,catId,catName){
   ST.custom[key]={n:v,cat:catName};
   ST.items[key]={qty:1,chk:false,dest:{casa:true,chicas:false,jardin:false},s:false};
   e.target.value=''; saveToFirebase(); renderCats(); toast('Agregado: '+v);
-}
-window.addCustom=addCustom;
-function confirmWeek(){
+};
+
+window.confirmWeek = function(){
   const its=[];
-  CATS.forEach(cat=>cat.items.forEach(it=>{ const key=cat.id+'--'+it.n,st=ST.items[key]; if(st&&st.qty>0) its.push({name:it.n,cat:cat.name,qty:st.qty}); }));
-  Object.entries(ST.custom||{}).forEach(([k,v])=>{ const st=ST.items[k]; if(st&&st.qty>0) its.push({name:v.n,cat:v.cat,qty:st.qty}); });
+  CATS.forEach(function(cat){
+    cat.items.forEach(function(it){
+      const key=makeKey(cat.id,it.n), st=ST.items[key];
+      if(st&&st.qty>0) its.push({name:it.n,cat:cat.name,qty:st.qty});
+    });
+  });
+  Object.entries(ST.custom||{}).forEach(function(e){
+    const st=ST.items[e[0]]; if(st&&st.qty>0) its.push({name:e[1].n,cat:e[1].cat,qty:st.qty});
+  });
   if(!its.length){ toast('No hay productos en la lista'); return; }
   const entry={week:ST.curWeek,date:new Date().toLocaleDateString('es-GT',{day:'numeric',month:'long',year:'numeric'}),items:its};
   if(!ST.history) ST.history=[];
   ST.history.unshift(entry); if(ST.history.length>16) ST.history.pop();
-  Object.keys(ST.items).forEach(k=>{ ST.items[k].qty=0; ST.items[k].chk=false; });
+  Object.keys(ST.items).forEach(function(k){ ST.items[k].qty=0; ST.items[k].chk=false; });
   ST.custom={};
   const nd=new Date(); nd.setDate(nd.getDate()+7); ST.curWeek=getWeekStr(nd);
   saveToFirebase(); setWeekBadge(); renderCats(); toast('¡Semana confirmada!');
-}
-window.confirmWeek=confirmWeek;
+};
+
+// ── History ───────────────────────────────────────
 function renderHistory(){
   const wrap=document.getElementById('histWrap');
   if(!ST.history||!ST.history.length){ wrap.innerHTML='<div class="empty"><i class="ti ti-history"></i>No hay historial aún.</div>'; return; }
   wrap.innerHTML='';
-  ST.history.forEach((wk,i)=>{
-    const tot=wk.items.reduce((a,b)=>a+b.qty,0);
+  ST.history.forEach(function(wk,i){
+    const tot=wk.items.reduce(function(a,b){ return a+b.qty; },0);
     const card=document.createElement('div'); card.className='wk-card';
-    card.innerHTML=`<div class="wk-hdr" onclick="toggleWk(${i})">
-      <i class="ti ti-calendar" style="color:#aaa;font-size:15px"></i>
-      <span class="wk-num">${wk.week}</span><span class="wk-date">${wk.date||''}</span>
-      <div class="wk-stats"><span class="wstat">${wk.items.length} productos</span><span class="wstat">${tot} unidades</span></div>
-      <i class="ti ti-chevron-down" style="color:#aaa;font-size:15px"></i>
-    </div>
-    <div class="wk-body" id="wkb-${i}" style="display:none">
-      ${wk.items.map(it=>`<div class="hi-row"><span class="hi-nm">${it.name}</span><span class="hi-cat">${it.cat}</span><span class="hi-qty">${it.qty} und</span></div>`).join('')}
-    </div>`;
+    card.innerHTML='<div class="wk-hdr" onclick="toggleWk('+i+')">'
+      +'<i class="ti ti-calendar" style="color:#aaa;font-size:15px"></i>'
+      +'<span class="wk-num">'+wk.week+'</span><span class="wk-date">'+(wk.date||'')+'</span>'
+      +'<div class="wk-stats"><span class="wstat">'+wk.items.length+' productos</span><span class="wstat">'+tot+' unidades</span></div>'
+      +'<i class="ti ti-chevron-down" style="color:#aaa;font-size:15px"></i></div>'
+      +'<div class="wk-body" id="wkb-'+i+'" style="display:none">'
+      +wk.items.map(function(it){ return '<div class="hi-row"><span class="hi-nm">'+it.name+'</span><span class="hi-cat">'+it.cat+'</span><span class="hi-qty">'+it.qty+' und</span></div>'; }).join('')
+      +'</div>';
     wrap.appendChild(card);
   });
 }
-function toggleWk(i){ const el=document.getElementById('wkb-'+i); el.style.display=el.style.display==='none'?'block':'none'; }
-window.toggleWk=toggleWk;
+window.toggleWk = function(i){ const el=document.getElementById('wkb-'+i); el.style.display=el.style.display==='none'?'block':'none'; };
+
+// ── Compare ───────────────────────────────────────
 function renderComparePicker(){
   const box=document.getElementById('wkCheckboxes');
-  if(!ST.history||!ST.history.length){ document.getElementById('cmpContent').innerHTML='<div class="empty"><i class="ti ti-chart-bar"></i>Sin historial aún.</div>'; box.innerHTML='<span style="font-size:12px;color:#aaa">Sin historial.</span>'; return; }
-  if(!selWeeks.length) selWeeks=ST.history.slice(0,Math.min(3,ST.history.length)).map(w=>w.week);
+  if(!ST.history||!ST.history.length){
+    document.getElementById('cmpContent').innerHTML='<div class="empty"><i class="ti ti-chart-bar"></i>Sin historial aún.</div>';
+    box.innerHTML='<span style="font-size:12px;color:#aaa">Sin historial.</span>'; return;
+  }
+  if(!selWeeks.length) selWeeks=ST.history.slice(0,Math.min(3,ST.history.length)).map(function(w){ return w.week; });
   box.innerHTML='';
-  ST.history.forEach(wk=>{
-    const btn=document.createElement('button'); btn.className='wk-chk-btn'+(selWeeks.includes(wk.week)?' sel':'');
+  ST.history.forEach(function(wk){
+    const btn=document.createElement('button');
+    btn.className='wk-chk-btn'+(selWeeks.includes(wk.week)?' sel':'');
     btn.textContent=wk.week;
-    btn.onclick=()=>{ selWeeks.includes(wk.week)?selWeeks=selWeeks.filter(w=>w!==wk.week):selWeeks.push(wk.week); btn.classList.toggle('sel'); };
+    btn.onclick=function(){ selWeeks.includes(wk.week)?selWeeks=selWeeks.filter(function(w){ return w!==wk.week; }):selWeeks.push(wk.week); btn.classList.toggle('sel'); };
     box.appendChild(btn);
   });
   runCompare();
 }
 window.renderComparePicker=renderComparePicker;
-function runCompare(){
+
+window.runCompare = function(){
   const content=document.getElementById('cmpContent');
   if(!ST.history||ST.history.length<2){ content.innerHTML='<div class="empty"><i class="ti ti-chart-bar"></i>Necesitás al menos 2 semanas.</div>'; return; }
-  const chosen=ST.history.filter(w=>selWeeks.includes(w.week));
+  const chosen=ST.history.filter(function(w){ return selWeeks.includes(w.week); });
   if(chosen.length<2){ content.innerHTML='<div class="empty"><i class="ti ti-info-circle"></i>Seleccioná al menos 2 semanas.</div>'; return; }
-  const sorted=[...chosen].sort((a,b)=>{ const wa=parseInt(a.week.match(/\d+/)[0]),wb=parseInt(b.week.match(/\d+/)[0]),ya=parseInt(a.week.match(/\d{4}/)[0]),yb=parseInt(b.week.match(/\d{4}/)[0]); return ya!==yb?ya-yb:wa-wb; });
-  const maps=sorted.map(w=>{ const m={}; w.items.forEach(it=>m[it.name]=(m[it.name]||0)+it.qty); return m; });
-  const allNames=[...new Set(sorted.flatMap(w=>w.items.map(i=>i.name)))].sort();
-  const totals=sorted.map((_,i)=>Object.values(maps[i]).reduce((a,b)=>a+b,0));
-  let sumHtml='<div class="sum-row">';
-  sorted.forEach((w,i)=>{ sumHtml+=`<div class="sum-s"><div class="sum-lbl" style="color:${WK_COLORS[i%WK_COLORS.length]}">${w.week}</div><div class="sum-val">${totals[i]}</div></div>`; if(i<sorted.length-1) sumHtml+='<div class="sdiv"></div>'; });
-  sumHtml+='</div>';
-  let legHtml='<div style="display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#888;align-items:center;margin-bottom:8px;padding:0 4px">';
-  sorted.forEach((w,i)=>{ legHtml+=`<span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${WK_COLORS[i%WK_COLORS.length]};margin-right:4px;vertical-align:middle"></span>${w.week}</span>`; });
-  legHtml+='</div>';
-  const ranked=allNames.map(n=>({n,max:Math.max(...maps.map(m=>m[n]||0))})).sort((a,b)=>b.max-a.max).slice(0,10);
-  const maxQ=Math.max(...ranked.map(r=>r.max),1);
-  let barHtml=`<div class="bar-card"><div class="sec-title"><i class="ti ti-chart-bar" style="font-size:15px"></i>Comparativo por producto (top 10)</div>${legHtml}`;
-  ranked.forEach(r=>{ const segs=sorted.map((w,i)=>{ const q=maps[i][r.n]||0,pct=Math.round(q/maxQ*100); return`<div class="bar-seg" style="width:${pct}%;background:${WK_COLORS[i%WK_COLORS.length]};opacity:0.85"></div>`; }).join(''); barHtml+=`<div class="bar-row"><div class="bar-lbl">${r.n}</div><div class="bar-track" style="gap:2px">${segs}</div><div class="bar-val">${r.max}</div></div>`; });
-  barHtml+='</div>';
-  let tblHtml=`<div class="tbl-wrap"><div class="sec-title"><i class="ti ti-table" style="font-size:15px"></i>Tabla completa</div><table class="cmp-tbl"><thead><tr><th>Producto</th>`;
-  sorted.forEach((w,i)=>{ tblHtml+=`<th style="color:${WK_COLORS[i%WK_COLORS.length]}">${w.week.replace('Semana ','S')}</th>`; });
-  tblHtml+=`<th>Tendencia</th></tr></thead><tbody>`;
-  allNames.forEach(n=>{ const vals=maps.map(m=>m[n]||0),diff=vals[vals.length-1]-vals[0]; const tc=diff>0?'up':diff<0?'down':'same',tt=diff>0?`▲ +${diff}`:diff<0?`▼ ${diff}`:'='; tblHtml+=`<tr><td>${n}</td>`; vals.forEach((v,i)=>{ tblHtml+=`<td style="color:${v>0?WK_COLORS[i%WK_COLORS.length]:'#ccc'}">${v||'—'}</td>`; }); tblHtml+=`<td class="trend-cell ${tc}">${tt}</td></tr>`; });
-  tblHtml+=`<tr style="border-top:1px solid var(--border);font-weight:600"><td>Total</td>`; totals.forEach(t=>{ tblHtml+=`<td>${t}</td>`; }); tblHtml+=`<td></td></tr></tbody></table></div>`;
-  const movers=allNames.map(n=>({n,diff:(maps[maps.length-1][n]||0)-(maps[0][n]||0)})).filter(x=>x.diff!==0).sort((a,b)=>Math.abs(b.diff)-Math.abs(a.diff)).slice(0,8);
-  const ups=movers.filter(m=>m.diff>0).slice(0,4),dns=movers.filter(m=>m.diff<0).slice(0,4);
-  let movHtml=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-    <div class="bar-card" style="margin:0"><div class="sec-title" style="color:var(--coral)"><i class="ti ti-trending-up" style="font-size:15px"></i>Mayor aumento</div>${ups.length?ups.map(m=>`<div class="hi-row"><span class="hi-nm">${m.n}</span><span class="up" style="font-weight:600">+${m.diff}</span></div>`).join(''):'<div style="font-size:12px;color:#aaa">Sin cambios</div>'}</div>
-    <div class="bar-card" style="margin:0"><div class="sec-title" style="color:var(--green)"><i class="ti ti-trending-down" style="font-size:15px"></i>Mayor reducción</div>${dns.length?dns.map(m=>`<div class="hi-row"><span class="hi-nm">${m.n}</span><span class="down" style="font-weight:600">${m.diff}</span></div>`).join(''):'<div style="font-size:12px;color:#aaa">Sin cambios</div>'}</div>
-  </div>`;
-  content.innerHTML=sumHtml+barHtml+movHtml+tblHtml;
-}
-window.runCompare=runCompare;
-function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
+  const sorted=chosen.slice().sort(function(a,b){
+    const wa=parseInt(a.week.match(/\d+/)[0]),wb=parseInt(b.week.match(/\d+/)[0]);
+    const ya=parseInt(a.week.match(/\d{4}/)[0]),yb=parseInt(b.week.match(/\d{4}/)[0]);
+    return ya!==yb?ya-yb:wa-wb;
+  });
+  const maps=sorted.map(function(w){ const m={}; w.items.forEach(function(it){ m[it.name]=(m[it.name]||0)+it.qty; }); return m; });
+  const allNames=Array.from(new Set(sorted.reduce(function(a,w){ return a.concat(w.items.map(function(i){ return i.name; })); },[])));
+  allNames.sort();
+  const totals=sorted.map(function(_,i){ return Object.values(maps[i]).reduce(function(a,b){ return a+b; },0); });
+  let html='<div class="sum-row">';
+  sorted.forEach(function(w,i){ html+='<div class="sum-s"><div class="sum-lbl" style="color:'+WK_COLORS[i%WK_COLORS.length]+'">'+w.week+'</div><div class="sum-val">'+totals[i]+'</div></div>'; if(i<sorted.length-1) html+='<div class="sdiv"></div>'; });
+  html+='</div>';
+  let leg='<div style="display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#888;align-items:center;margin-bottom:8px">';
+  sorted.forEach(function(w,i){ leg+='<span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:'+WK_COLORS[i%WK_COLORS.length]+';margin-right:4px;vertical-align:middle"></span>'+w.week+'</span>'; });
+  leg+='</div>';
+  const ranked=allNames.map(function(n){ return {n:n,max:Math.max.apply(null,maps.map(function(m){ return m[n]||0; }))}; }).sort(function(a,b){ return b.max-a.max; }).slice(0,10);
+  const maxQ=Math.max.apply(null,ranked.map(function(r){ return r.max; }))||1;
+  let bar='<div class="bar-card"><div class="sec-title"><i class="ti ti-chart-bar" style="font-size:15px"></i>Comparativo por producto (top 10)</div>'+leg;
+  ranked.forEach(function(r){ const segs=sorted.map(function(w,i){ const q=maps[i][r.n]||0,pct=Math.round(q/maxQ*100); return '<div class="bar-seg" style="width:'+pct+'%;background:'+WK_COLORS[i%WK_COLORS.length]+';opacity:0.85"></div>'; }).join(''); bar+='<div class="bar-row"><div class="bar-lbl">'+r.n+'</div><div class="bar-track" style="gap:2px">'+segs+'</div><div class="bar-val">'+r.max+'</div></div>'; });
+  bar+='</div>';
+  let tbl='<div class="tbl-wrap"><div class="sec-title"><i class="ti ti-table" style="font-size:15px"></i>Tabla completa</div><table class="cmp-tbl"><thead><tr><th>Producto</th>';
+  sorted.forEach(function(w,i){ tbl+='<th style="color:'+WK_COLORS[i%WK_COLORS.length]+'">'+w.week.replace('Semana ','S')+'</th>'; });
+  tbl+='<th>Tendencia</th></tr></thead><tbody>';
+  allNames.forEach(function(n){ const vals=maps.map(function(m){ return m[n]||0; }),diff=vals[vals.length-1]-vals[0]; const tc=diff>0?'up':diff<0?'down':'same',tt=diff>0?'▲ +'+diff:diff<0?'▼ '+diff:'='; tbl+='<tr><td>'+n+'</td>'; vals.forEach(function(v,i){ tbl+='<td style="color:'+(v>0?WK_COLORS[i%WK_COLORS.length]:'#ccc')+'">'+(v||'—')+'</td>'; }); tbl+='<td class="trend-cell '+tc+'">'+tt+'</td></tr>'; });
+  tbl+='<tr style="border-top:1px solid var(--border);font-weight:600"><td>Total</td>'; totals.forEach(function(t){ tbl+='<td>'+t+'</td>'; }); tbl+='<td></td></tr></tbody></table></div>';
+  const movers=allNames.map(function(n){ return {n:n,diff:(maps[maps.length-1][n]||0)-(maps[0][n]||0)}; }).filter(function(x){ return x.diff!==0; }).sort(function(a,b){ return Math.abs(b.diff)-Math.abs(a.diff); }).slice(0,8);
+  const ups=movers.filter(function(m){ return m.diff>0; }).slice(0,4);
+  const dns=movers.filter(function(m){ return m.diff<0; }).slice(0,4);
+  let mov='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">'
+    +'<div class="bar-card" style="margin:0"><div class="sec-title" style="color:var(--coral)"><i class="ti ti-trending-up" style="font-size:15px"></i>Mayor aumento</div>'+(ups.length?ups.map(function(m){ return '<div class="hi-row"><span class="hi-nm">'+m.n+'</span><span class="up" style="font-weight:600">+'+m.diff+'</span></div>'; }).join(''):'<div style="font-size:12px;color:#aaa">Sin cambios</div>')+'</div>'
+    +'<div class="bar-card" style="margin:0"><div class="sec-title" style="color:var(--green)"><i class="ti ti-trending-down" style="font-size:15px"></i>Mayor reducción</div>'+(dns.length?dns.map(function(m){ return '<div class="hi-row"><span class="hi-nm">'+m.n+'</span><span class="down" style="font-weight:600">'+m.diff+'</span></div>'; }).join(''):'<div style="font-size:12px;color:#aaa">Sin cambios</div>')+'</div>'
+    +'</div>';
+  content.innerHTML=html+bar+mov+tbl;
+};
+
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); },2500); }
 
 setSyncStatus('syncing','Conectando...');
 setWeekBadge();
