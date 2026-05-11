@@ -330,7 +330,7 @@ let remoteWritePending=false, writeTimer=null;
 
 function buildEmptyST(){
   const items={};
-  CATS.forEach(c=>c.items.forEach(it=>{items[c.id+'|'+it.n]={qty:0,chk:false,dest:{casa:true,chicas:false,jardin:false},s:it.s};}));
+  CATS.forEach(c=>c.items.forEach(it=>{items[c.id+'--'+it.n]={qty:0,chk:false,dest:{casa:true,chicas:false,jardin:false},s:it.s};}));
   return{items,curWeek:getWeekStr(new Date()),history:[],custom:{}};
 }
 function setSyncStatus(status,label){
@@ -386,8 +386,8 @@ function renderCats(){
   const grid=document.getElementById('catGrid'); grid.innerHTML='';
   let tot=0,chk=0,sup=0,loc=0;
   CATS.forEach(cat=>{
-    const allItems=cat.items.map(it=>({...it,key:cat.id+'|'+it.n}));
-    const customs=Object.entries(ST.custom||{}).filter(([k])=>k.startsWith(cat.id+'|__')).map(([k,v])=>({n:v.n,s:false,key:k,custom:true}));
+    const allItems=cat.items.map(it=>({...it,key:cat.id+'--'+it.n}));
+    const customs=Object.entries(ST.custom||{}).filter(([k])=>k.startsWith(cat.id+'--custom--')).map(([k,v])=>({n:v.n,s:false,key:k,custom:true}));
     const combined=[...allItems,...customs];
     const withQty=combined.filter(it=>{ const st=ST.items[it.key]; return st&&st.qty>0; });
     withQty.forEach(it=>{ const st=ST.items[it.key]; tot+=st.qty; if(st.chk) chk+=st.qty; if(it.s) sup+=st.qty; else loc+=st.qty; });
@@ -451,7 +451,7 @@ window.toggleDest=toggleDest;
 function addCustom(e,catId,catName){
   if(e.key!=='Enter') return;
   const v=e.target.value.trim(); if(!v) return;
-  const key=catId+'|__'+Date.now();
+  const key=catId+'--custom--'+Date.now();
   if(!ST.custom) ST.custom={};
   ST.custom[key]={n:v,cat:catName};
   ST.items[key]={qty:1,chk:false,dest:{casa:true,chicas:false,jardin:false},s:false};
@@ -460,7 +460,7 @@ function addCustom(e,catId,catName){
 window.addCustom=addCustom;
 function confirmWeek(){
   const its=[];
-  CATS.forEach(cat=>cat.items.forEach(it=>{ const key=cat.id+'|'+it.n,st=ST.items[key]; if(st&&st.qty>0) its.push({name:it.n,cat:cat.name,qty:st.qty}); }));
+  CATS.forEach(cat=>cat.items.forEach(it=>{ const key=cat.id+'--'+it.n,st=ST.items[key]; if(st&&st.qty>0) its.push({name:it.n,cat:cat.name,qty:st.qty}); }));
   Object.entries(ST.custom||{}).forEach(([k,v])=>{ const st=ST.items[k]; if(st&&st.qty>0) its.push({name:v.n,cat:v.cat,qty:st.qty}); });
   if(!its.length){ toast('No hay productos en la lista'); return; }
   const entry={week:ST.curWeek,date:new Date().toLocaleDateString('es-GT',{day:'numeric',month:'long',year:'numeric'}),items:its};
